@@ -1,7 +1,11 @@
 {
-	"root": true,
-	"extends": "hapi",
-    "rules": {
-        "no-undef": "error"
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
+    "env": {
+        "es6": true
+    },
+    "settings": {
+        "brace-style": [2, "1tbs", { "allowSingleLine": true }]
     }
 }

@@ -2,9 +2,9 @@
 
 const {createServer} = require('./helpers/server');
 
-const Boom = require('boom');
-const Code = require('code');
-const Lab = require('lab');
+const Boom = require('@hapi/boom');
+const Code = require('@hapi/code');
+const Lab = require('@hapi/lab');
 
 const lab = exports.lab = Lab.script();
 const experiment = lab.experiment;
@@ -1238,7 +1238,7 @@ experiment('Setting configurable method to execute on error', () => {
         // Set up the hapi server route
         server = await createServer(users, {
             onError(request, h, err) {
-                throw new Boom(err.message, {statusCode: 403});
+                throw new Boom.Boom(err.message, {statusCode: 403});
             }
         });
 

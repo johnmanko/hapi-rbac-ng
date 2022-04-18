@@ -1,10 +1,10 @@
 {
-  "name": "hapi-rbac",
-  "version": "3.0.0",
+  "name": "hapi-rbac-ng",
+  "version": "4.0.0",
   "description": "Rule Based Access Control for Hapijs",
   "preferGlobal": false,
   "main": "lib/index.js",
-  "repository": "git@github.com:franciscogouveia/hapi-rbac.git",
+  "repository": "git@github.com:johnmanko/hapi-rbac-ng.git",
   "keywords": [
     "hapijs",
     "hapi",
@@ -19,6 +19,11 @@
     "email": "francisco@de-gouveia.eu",
     "url": "http://de-gouveia.eu"
   },
+  "contributors": [
+    { "name" : "John Manko",
+      "url" : "https://github.com/johnmanko"
+    }
+  ],
   "license": "ISC",
   "scripts": {
     "test": "lab -v",
@@ -27,22 +32,23 @@
     "indent": "js-beautify lib/index.js"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=16.0.0"
   },
   "dependencies": {
-    "boom": "^7.3.0",
-    "hoek": "^6.1.2",
-    "joi": "14.3.1",
-    "rbac-core": "^3.0.0"
+    "rbac-core-ng": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@hapi/boom": "^9.1.4",
+    "@hapi/hoek": "^9.2.1",
+    "joi": "17.6.0"
   },
   "devDependencies": {
-    "code": "4.0.0",
-    "eslint-config-hapi": "^10.0.0",
-    "eslint-plugin-hapi": "^4.0.0",
-    "coveralls": "^2.11.9",
-    "hapi": "17.8.1",
-    "hapi-auth-basic": "5.0.0",
-    "js-beautify": "^1.6.2",
-    "lab": "^18.0.1"
+    "@hapi/code": "8.0.7",
+    "@hapi/eslint-plugin": "^5.1.0",
+    "coveralls": "^3.1.1",
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/basic": "6.0.0",
+    "js-beautify": "^1.14.3",
+    "@hapi/lab": "^24.6.0"
   }
 }

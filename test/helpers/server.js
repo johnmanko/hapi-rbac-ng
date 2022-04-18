@@ -1,4 +1,4 @@
-const Hapi = require('hapi');
+const Hapi = require('@hapi/hapi');
 
 
 exports.createServer = async (users, options) => {
@@ -6,7 +6,7 @@ exports.createServer = async (users, options) => {
         const server = new Hapi.Server();
 
         await server.register([
-            require('hapi-auth-basic'),
+            require('@hapi/basic'),
             {
                 plugin: require('../../lib'),
                 options

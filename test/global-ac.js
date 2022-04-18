@@ -1,8 +1,8 @@
 'use strict';
 
 const Joi = require('joi');
-const Code = require('code');
-const Lab = require('lab');
+const Code = require('@hapi/code');
+const Lab = require('@hapi/lab');
 const {createServer} = require('./helpers/server');
 
 const lab = exports.lab = Lab.script();
@@ -52,7 +52,7 @@ experiment('Global RBAC policy, based on username', () => {
                 ]
             }
         });
-
+        
         // No policy configured -> use global configuration
         server.route({
             method: 'GET',
@@ -124,9 +124,9 @@ experiment('Global RBAC policy, based on username', () => {
             handler: (request, h) => h.response({ok: true}),
             config: {
                 validate: {
-                    query: {
+                    query: Joi.object({
                         param1: Joi.string().required()
-                    }
+                    })
                 },
                 plugins: {
                     rbac: {
@@ -293,7 +293,7 @@ experiment('Global RBAC policy, based on username', () => {
                 authorization: 'Basic ' + (new Buffer('sg1002:pwtest', 'utf8')).toString('base64')
             }
         });
-
+        
         expect(response.statusCode).to.equal(401);
     });
 

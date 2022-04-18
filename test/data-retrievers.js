@@ -1,8 +1,8 @@
 'use strict';
 
-const Code = require('code');
-const Lab = require('lab');
-const Hoek = require('hoek');
+const Code = require('@hapi/code');
+const Lab = require('@hapi/lab');
+const Hoek = require('@hapi/hoek');
 const {createServer} = require('./helpers/server');
 
 const lab = exports.lab = Lab.script();
@@ -56,7 +56,7 @@ experiment('User defined data retrievers', () => {
                         // Alias
                         'config'
                     ],
-                    handler: (source, key, context, callback) => {
+                    handler: (source, key, context) => {
 
                         // In hapi-rbac, the context is always the Request object
 
@@ -67,11 +67,11 @@ experiment('User defined data retrievers', () => {
 
                         if (!configuration) {
                             // Configuration not found or invalid, pass nothing in callback
-                            return callback();
+                            return;
                         }
 
                         // Pass field value in the callback
-                        callback(null, configuration[key]);
+                        return configuration[key];
                     }
                 }
             ]
